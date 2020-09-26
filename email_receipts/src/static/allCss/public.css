@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main{
+    overflow: hidden;
+    width: 90%;
+    background: bisque;
+    margin: auto; 
+    float: right;       
+}

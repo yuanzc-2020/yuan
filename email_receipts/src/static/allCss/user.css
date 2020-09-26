@@ -1,0 +1,46 @@
+.users{
+    overflow: hidden;
+    width: 90%;
+    background: gold;
+    float: right;
+     border-bottom: 1px black solid;
+}
+
+/* 头部区域 */
+.header span{
+    font-size: 30px;
+    font-weight: 400;
+}
+.right{
+    overflow: hidden;
+    float: right;
+}
+/* 搜索区域 */
+.search .right{
+    height: 100%;
+    margin-right: 40px;
+}
+.search{
+    height: 130px;
+    text-align: center;
+}
+.search .conditon{
+    padding: 40px;
+    float: left;
+}
+.search .conditon input{
+    width: 150px;
+}
+/* 表格区域 */
+.msgTable{
+    overflow: hidden;
+    width: 100%;
+}
+.modal-content select{
+    width: 40%;
+    float: left;
+}
+.modal-content button{
+    width: 40%;
+    float: right;
+}
