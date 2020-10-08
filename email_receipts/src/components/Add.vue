@@ -169,14 +169,14 @@
                         <li>下载模板：<button>下载票据模板</button></li>                 
                     </ul>
                                      
-                    
+                    <W
                     
             申请事由:<textarea class="applyfor" placeholder="请输入申请事由"></textarea>
             总金额:  <input type="text" placeholder="总金额" readonly/>
 
         
      <div class="buttom">
-        <Button>保存</Button>
+        <Button @click="findHello()">保存</Button>
     </div>   
      </div>
          
@@ -286,6 +286,11 @@ export default {
                 reader.readAsBinaryString(f);
             }
             },
+            findHello(){
+                this.$router.push({
+				name: 'hello',
+			});
+            }
   },
   components:{
      

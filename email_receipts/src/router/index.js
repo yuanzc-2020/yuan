@@ -16,7 +16,7 @@ export default new Router({
       name: 'Home',
       component: Home
     },
-    {path:"/hello",name:"HelloWorld",component:HelloWorld},
+    {path:"/hello",name:"hello",component:HelloWorld},
     {path:"/add",name:"add",component:Add},
     {path:"/invoice",name:"invoice",component:Invoice},
     {path:"/users",name:"users",component:Users},

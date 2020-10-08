@@ -36,10 +36,7 @@
         <!-- 表格内容 -->
         <div class="msgTable">
             <Table :columns="comlumn1" :data="receipt" id="msgTable" >
-                 <template slot-scope="{ row, index }" slot="operation">
-                    <Button type="primary" size="small" style="margin-right: 5px" @click="show(index)">View</Button>
-                    <Button type="error" size="small" @click="remove(index)">Delete</Button>
-                </template>
+                
 
                     <!-- <tr>
                         <td>
@@ -68,6 +65,11 @@ export default {
 //          person:{type:Array, required=true },
 //          users:{ type:String, required=true}...
 //     }
+    provide(){
+        return{
+             reloadAll:this.reloadAll
+        }
+    },
     data(){
         return{
             comlumn1:[
@@ -94,6 +96,8 @@ export default {
               
             },
             receipt:[],
+            isRouterAlive=true,
+           
             
         }
     },
@@ -116,6 +120,12 @@ export default {
             remove (index) {
                 this.data6.splice(index, 1);
                 console.log(index);
+            },
+            reloadAll(){
+                this.isRouterAlive=false;
+                this.$nextTick(() =>{
+                    this.isRouterAlive=true;
+                })
             }
       }
      

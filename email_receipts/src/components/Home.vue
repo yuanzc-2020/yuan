@@ -4,18 +4,22 @@
         <h1>电子收据系统管理平台</h1>
       
     </div>
-    <side></side>
+   
     <app_header></app_header>
       <!-- //父向子传值 -->
-    <users v-bind:person="person" ></users>
-    <app_footer></app_footer>
+      <el-container>
+         <side v-if="isRouterSide"></side>
+        <users v-bind:person="person" v-if="isRouterUsers" ></users>
+        <app_footer v-if="isRouterFooter"></app_footer>
+      </el-container>
+    
       
   </div>
 </template>
 
 <script>
 
-import Users from './Users'
+import Users from './ '
 import Header from './Header'
 import Footer from './Footer'
 import Side from './Side'
@@ -23,17 +27,30 @@ import $ from 'jquery';
 
      export default {
       name: 'Home',
+      
+     
       data(){
         return {
+          isRouterSide=true,
+          isRouterUsers=true,
+          isRouterFooter=true,
           //父向子传值
           "person":{
             "name":"jeck",
             "age":"19"
           },
-          receipt:[]
-
+          receipt:[],
+         
         }
 
+      },
+      provide(){
+        return {
+          reloadSide: this.reloadSide,
+          reloadUsers: this.reloadUsers,
+          reloadFooter: this.reloadFooter
+
+        }
       },
       components:{
         "users":Users,
@@ -41,6 +58,26 @@ import $ from 'jquery';
         "app_footer":Footer,
         "side":Side
       },
+      methods:{
+        reloadSide(){
+            this.isRouterSide=false;
+            this.$nextTick(() => {
+              this.isRouterSide=true;
+            })
+          },
+          reloadUsers(){
+            this.isRouterUsers=false;
+            this.$nextTick(() => {
+              this.isRouterUsers=true;
+            })
+          },
+          reloadFooter(){
+            this.isRouterFooter=false;
+            this.$nextTick(() => {
+              this.isRouterFooter=false;
+            })
+          }
+      }
       
      
     }

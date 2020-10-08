@@ -1,8 +1,10 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Hello world</h2>
-    
+  <div>
+    <div ref="hello">
+      hello world
+    </div>
+    <p ref="hello">choangqu</p>
+    <button @click="handleClick">我是按钮</button>
   </div>
 </template>
 
@@ -11,20 +13,20 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      arr: ''
     }
   },
-  methods:{
+  methods: {
+    handleClick () {
+      this.arr = this.$refs.hello.innerHTML //获取DOM元素节点的值
+      alert(this.arr)
+    }
     
   },
-  created(){
-      console.log("123")
-      console.log($);
+ created(){
+     alert("23232");
+     this.arr = this.$refs.hello.innerHTML //获取DOM元素节点的值
+      alert(this.arr)
     }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>
